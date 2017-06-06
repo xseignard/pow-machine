@@ -1,0 +1,30 @@
+{
+  "name": "pow-machine",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "rm -rf build/* && electron-packager --platform=linux,darwin --ignore=arduino --out=build .",
+    "rebuild": "electron-rebuild"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xseiganrd/pow-machine.git"
+  },
+  "author": "Xavier Seignard",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xseiganrd/pow-machine/issues"
+  },
+  "homepage": "https://github.com/xseiganrd/pow-machine#readme",
+  "devDependencies": {
+    "electron": "^1.6.10",
+    "electron-packager": "^8.7.0",
+    "electron-rebuild": "^1.5.11"
+  },
+  "dependencies": {
+    "serialport": "^4.0.7",
+    "thermalprinter": "^0.3.8"
+  }
+}

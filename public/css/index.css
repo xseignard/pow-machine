@@ -1,0 +1,50 @@
+body {
+	margin: 0;
+	overflow: hidden;
+}
+
+.mask {
+	position: absolute;
+	width: 100%;
+	background-color: white;
+	z-index: 1;
+	height: 340px;
+	left: 0;
+}
+
+.mask-1 {
+	top: 0;
+}
+
+.mask-2 {
+	bottom: 0;
+}
+
+#container {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	top: 340px;
+}
+
+#container > div {
+	flex: 1;
+}
+
+.slot {
+	height: 400px;
+}
+
+.slot-p {
+	background: url('../img/p.svg') center no-repeat;
+}
+
+.slot-o {
+	background: url('../img/o.svg') center no-repeat;
+}
+
+.slot-w {
+	background: url('../img/w.svg') center no-repeat;
+}
