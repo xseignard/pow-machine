@@ -35,7 +35,7 @@ app.on('activate', () => {
 });
 
 // messages from the front
-const serialPort = new SerialPort('/dev/ttyUSB0', { baudrate: 19200 });
+const serialPort = new SerialPort('/dev/cu.usbserial', { baudrate: 19200 });
 const first = ['p', 'w', 'o'];
 const second = ['p', 'o', 'w'];
 const last = ['w', 'p', 'o'];

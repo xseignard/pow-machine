@@ -8,7 +8,7 @@ body {
 	width: 100%;
 	background-color: white;
 	z-index: 1;
-	height: 340px;
+	height: 312px;
 	left: 0;
 }
 
@@ -26,7 +26,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	position: relative;
-	top: 340px;
+	top: 312px;
 }
 
 #container > div {
