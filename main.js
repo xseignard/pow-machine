@@ -71,7 +71,7 @@ serialPort.on('open', () => {
 	const printer = new Printer(serialPort, opts);
 	printer.on('ready', () => {
 		console.log('ready');
-		setTimeout(() => {
+		setInterval(() => {
 			mainWindow.webContents.send('spin');
 		}, 2000);
 		ipcMain.on('result', (event, arg) => {

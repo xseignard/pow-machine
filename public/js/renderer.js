@@ -2,6 +2,7 @@ const ipcRenderer = require('electron').ipcRenderer;
 
 $(document).ready(() => {
 	let canSpin = true;
+	let count = 0;
 	const randomInt = (min, max) => {
 		min = Math.ceil(min);
 		max = Math.floor(max);
@@ -14,6 +15,18 @@ $(document).ready(() => {
 
 	const spin = () => {
 		canSpin = false;
+		console.log(count);
+		if (count === 2) {
+			first.setRandomize(0);
+			second.setRandomize(1);
+			last.setRandomize(0);
+			count = 0;
+		} else {
+			first.setRandomize(randomInt(0, 2));
+			second.setRandomize(randomInt(0, 2));
+			last.setRandomize(randomInt(0, 2));
+			count++;
+		}
 		first.shuffle();
 		second.shuffle();
 		last.shuffle();
@@ -36,11 +49,13 @@ $(document).ready(() => {
 	};
 
 	ipcRenderer.on('ok', () => {
+		console.log('ok');
 		canSpin = true;
 	});
 
 	ipcRenderer.on('spin', () => {
 		if (canSpin) {
+			console.log('spin!!!');
 			spin();
 			setTimeout(() => {
 				stop();
