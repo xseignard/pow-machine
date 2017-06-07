@@ -25,6 +25,7 @@
   },
   "dependencies": {
     "serialport": "^4.0.7",
+    "socket.io-client": "^2.0.2",
     "thermalprinter": "^0.3.8"
   }
 }

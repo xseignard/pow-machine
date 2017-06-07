@@ -5,6 +5,11 @@ const ipcMain = require('electron').ipcMain;
 const SerialPort = require('serialport');
 const Printer = require('thermalprinter');
 
+const socket = require('socket.io-client')('http://207.154.232.181:4000');
+socket.on('connect', function() {
+	console.log('socket connected');
+});
+
 const path = require('path');
 const url = require('url');
 
@@ -71,9 +76,10 @@ serialPort.on('open', () => {
 	const printer = new Printer(serialPort, opts);
 	printer.on('ready', () => {
 		console.log('ready');
-		setInterval(() => {
+		socket.emit('printer-ready');
+		socket.on('spin', () => {
 			mainWindow.webContents.send('spin');
-		}, 2000);
+		});
 		ipcMain.on('result', (event, arg) => {
 			printer.lineFeed(3);
 			printer.center();
